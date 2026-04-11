@@ -109,6 +109,101 @@ After installation, the app exposes:
 - `Biometric Scan Session`
 - `Biometric Event Log`
 
+## Installation and Usage Manual
+
+## 1. Prerequisites
+
+### Frappe / ERPNext side
+- Frappe or ERPNext site v15+
+- HR module enabled if you need `Employee`, `Employee Checkin`, `Attendance`, `Shift Type`, `Auto Attendance`
+- administrator access to the site
+- ability to install a custom app from GitHub on Frappe Cloud
+
+### Local machine side
+- Windows recommended for ZKTeco USB scanner
+- Python 3.10+
+- outbound internet access to your Frappe Cloud site
+- official ZKTeco SDK / driver matching your device model
+
+## 2. Installing the app on Frappe Cloud
+
+1. Push this repository to GitHub.
+2. In Frappe Cloud, open the Bench hosting your site.
+3. Add the custom app from the GitHub repository.
+4. Install the app on the site.
+5. Run site migration if required.
+
+Once installed, the app automatically creates:
+- roles `Biometric Manager` and `Biometric Operator`
+- biometric fields added to `User`
+- public Workspace `ZK Bio Identity`
+- document `ZK Bio Settings` if it does not exist
+
+## 3. Initial site configuration
+
+### 3.1 Assign roles
+Assign at least one of the following roles to operators:
+- `Biometric Manager`
+- `Biometric Operator`
+
+### 3.2 Open settings
+Go to:
+- `ZK Bio Identity` → `ZK Bio Settings`
+
+Fill in:
+- `default_device`: default device
+- `auto_create_employee_checkin`: enable to automatically create checkins after successful identification
+- `checkin_mode`: `Alternating`, `Always IN`, or `Always OUT`
+- `heartbeat_timeout_seconds`: time after which a device is considered offline
+
+## 4. Creating a dedicated API user for the agent
+
+Create a technical user, for example:
+- `biometric.agent@yourdomain.com`
+
+Assign:
+- `Biometric Manager`
+
+Generate:
+- API Key
+- API Secret
+
+These values will be used in `agent_local/config.yaml`.
+
+## 5. Installing the ZKTeco driver / SDK
+
+### 5.1 Windows
+1. Download the official ZKFinger SDK for Windows from the ZKTeco download center.
+2. Extract the archive.
+3. Install the provided driver.
+4. Plug in the USB scanner.
+5. Verify that Windows detects the device correctly.
+6. Locate the main DLL path used by the SDK.
+
+Example path (adjust as needed):
+- `C:\ZKTeco\ZKFingerSDK\lib\zkfp.dll`
+
+### 5.2 macOS
+Native macOS support is not recommended for this V1.
+
+Recommended approach:
+1. create a Linux VM on your Mac
+2. pass through the USB scanner to the VM
+3. install the ZKTeco Linux SDK inside the VM
+4. run the agent inside the VM instead of macOS
+
+## 6. Installing the local agent
+
+### 6.1 Prepare the environment
+Inside `agent_local/`:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+
 ## License note
 This project is delivered as an original app inspired by the public structure and feature ideas of the referenced M-Pesa app.
 You should still perform your own legal review before distributing commercially.
