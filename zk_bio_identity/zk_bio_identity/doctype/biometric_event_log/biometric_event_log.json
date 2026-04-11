@@ -1,0 +1,113 @@
+{
+  "actions": [],
+  "allow_copy": 0,
+  "autoname": "hash",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "event_type",
+    "device",
+    "user",
+    "employee",
+    "biometric_id",
+    "matched",
+    "confidence",
+    "event_time",
+    "status",
+    "payload"
+  ],
+  "fields": [
+    {
+      "fieldname": "event_type",
+      "fieldtype": "Select",
+      "label": "Event Type",
+      "options": "heartbeat\\ndevice_test\\nidentify\\nenroll\\ncheckin\\nerror",
+      "reqd": 1
+    },
+    {
+      "fieldname": "device",
+      "fieldtype": "Link",
+      "label": "Device",
+      "options": "Biometric Device"
+    },
+    {
+      "fieldname": "user",
+      "fieldtype": "Link",
+      "label": "User",
+      "options": "User"
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "biometric_id",
+      "fieldtype": "Data",
+      "label": "Biometric ID"
+    },
+    {
+      "fieldname": "matched",
+      "fieldtype": "Check",
+      "label": "Matched"
+    },
+    {
+      "fieldname": "confidence",
+      "fieldtype": "Float",
+      "label": "Confidence"
+    },
+    {
+      "fieldname": "event_time",
+      "fieldtype": "Datetime",
+      "label": "Event Time"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Data",
+      "label": "Status"
+    },
+    {
+      "fieldname": "payload",
+      "fieldtype": "Long Text",
+      "label": "Payload"
+    }
+  ],
+  "grid_page_length": 50,
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2026-04-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "ZK Bio Identity",
+  "name": "Biometric Event Log",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "read": 1,
+      "role": "Biometric Manager"
+    },
+    {
+      "read": 1,
+      "role": "Biometric Operator"
+    }
+  ],
+  "search_fields": "event_type,device,user,employee,biometric_id,status",
+  "show_name_in_global_search": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

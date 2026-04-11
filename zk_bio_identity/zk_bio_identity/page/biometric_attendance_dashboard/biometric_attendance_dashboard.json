@@ -1,0 +1,22 @@
+{
+  "content": "",
+  "doctype": "Page",
+  "icon": "fingerprint",
+  "module": "ZK Bio Identity",
+  "name": "biometric_attendance_dashboard",
+  "page_name": "biometric_attendance_dashboard",
+  "roles": [
+    {
+      "role": "System Manager"
+    },
+    {
+      "role": "Biometric Manager"
+    },
+    {
+      "role": "Biometric Operator"
+    }
+  ],
+  "standard": "Yes",
+  "system_page": 0,
+  "title": "Attendance Dashboard"
+}

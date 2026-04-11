@@ -1,0 +1,22 @@
+{
+  "content": "",
+  "doctype": "Page",
+  "icon": "fingerprint",
+  "module": "ZK Bio Identity",
+  "name": "biometric_identify_user",
+  "page_name": "biometric_identify_user",
+  "roles": [
+    {
+      "role": "System Manager"
+    },
+    {
+      "role": "Biometric Manager"
+    },
+    {
+      "role": "Biometric Operator"
+    }
+  ],
+  "standard": "Yes",
+  "system_page": 0,
+  "title": "Identify User"
+}

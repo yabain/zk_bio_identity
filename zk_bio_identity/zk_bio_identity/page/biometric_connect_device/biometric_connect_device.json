@@ -1,0 +1,22 @@
+{
+  "content": "",
+  "doctype": "Page",
+  "icon": "fingerprint",
+  "module": "ZK Bio Identity",
+  "name": "biometric_connect_device",
+  "page_name": "biometric_connect_device",
+  "roles": [
+    {
+      "role": "System Manager"
+    },
+    {
+      "role": "Biometric Manager"
+    },
+    {
+      "role": "Biometric Operator"
+    }
+  ],
+  "standard": "Yes",
+  "system_page": 0,
+  "title": "Connect Device"
+}

@@ -1,0 +1,85 @@
+{
+  "actions": [],
+  "allow_copy": 0,
+  "autoname": "prompt",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "default_device",
+    "auto_create_employee_checkin",
+    "checkin_mode",
+    "heartbeat_timeout_seconds",
+    "result_poll_interval_ms"
+  ],
+  "fields": [
+    {
+      "fieldname": "default_device",
+      "fieldtype": "Link",
+      "label": "Default Device",
+      "options": "Biometric Device"
+    },
+    {
+      "default": "1",
+      "fieldname": "auto_create_employee_checkin",
+      "fieldtype": "Check",
+      "label": "Auto Create Employee Checkin"
+    },
+    {
+      "default": "Alternating",
+      "fieldname": "checkin_mode",
+      "fieldtype": "Select",
+      "label": "Checkin Mode",
+      "options": "Alternating\\nAlways IN\\nAlways OUT",
+      "reqd": 1
+    },
+    {
+      "default": "60",
+      "fieldname": "heartbeat_timeout_seconds",
+      "fieldtype": "Int",
+      "label": "Heartbeat Timeout Seconds",
+      "reqd": 1
+    },
+    {
+      "default": "2000",
+      "fieldname": "result_poll_interval_ms",
+      "fieldtype": "Int",
+      "label": "Result Poll Interval (ms)",
+      "reqd": 1
+    }
+  ],
+  "grid_page_length": 50,
+  "index_web_pages_for_search": 1,
+  "issingle": 1,
+  "links": [],
+  "modified": "2026-04-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "ZK Bio Identity",
+  "name": "ZK Bio Settings",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "read": 1,
+      "write": 1,
+      "role": "Biometric Manager"
+    }
+  ],
+  "search_fields": "default_device,checkin_mode",
+  "show_name_in_global_search": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

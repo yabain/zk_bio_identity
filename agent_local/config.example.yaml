@@ -1,0 +1,17 @@
+site_url: "https://your-site.frappe.cloud"
+api_key: "YOUR_API_KEY"
+api_secret: "YOUR_API_SECRET"
+
+device_id: "front-desk-01"
+device_name: "Front Desk 01"
+
+provider: "mock"   # mock | zkteco_sdk
+sdk_library_path: ""  # required for zkteco_sdk provider
+poll_interval_seconds: 3
+heartbeat_interval_seconds: 15
+templates_refresh_seconds: 60
+request_timeout_seconds: 20
+
+# mock provider only
+mock_identify_biometric_id: ""
+mock_enroll_prefix: "MOCK-"

@@ -1,0 +1,22 @@
+{
+  "content": "",
+  "doctype": "Page",
+  "icon": "fingerprint",
+  "module": "ZK Bio Identity",
+  "name": "biometric_enroll_user",
+  "page_name": "biometric_enroll_user",
+  "roles": [
+    {
+      "role": "System Manager"
+    },
+    {
+      "role": "Biometric Manager"
+    },
+    {
+      "role": "Biometric Operator"
+    }
+  ],
+  "standard": "Yes",
+  "system_page": 0,
+  "title": "Add Fingerprint"
+}

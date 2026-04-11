@@ -1,0 +1,134 @@
+{
+  "actions": [],
+  "allow_copy": 1,
+  "autoname": "field:device_id",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "device_id",
+    "device_name",
+    "provider",
+    "scanner_model",
+    "serial_no",
+    "os_type",
+    "agent_version",
+    "last_seen_at",
+    "last_status",
+    "scanner_connected",
+    "scanner_detected_name",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "device_id",
+      "fieldtype": "Data",
+      "label": "Device ID",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "device_name",
+      "fieldtype": "Data",
+      "label": "Device Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "provider",
+      "fieldtype": "Select",
+      "label": "Provider",
+      "options": "mock\\nzkteco_sdk",
+      "default": "mock",
+      "reqd": 1
+    },
+    {
+      "fieldname": "scanner_model",
+      "fieldtype": "Data",
+      "label": "Scanner Model"
+    },
+    {
+      "fieldname": "serial_no",
+      "fieldtype": "Data",
+      "label": "Serial No"
+    },
+    {
+      "fieldname": "os_type",
+      "fieldtype": "Data",
+      "label": "OS Type"
+    },
+    {
+      "fieldname": "agent_version",
+      "fieldtype": "Data",
+      "label": "Agent Version"
+    },
+    {
+      "fieldname": "last_seen_at",
+      "fieldtype": "Datetime",
+      "label": "Last Seen At",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_status",
+      "fieldtype": "Select",
+      "label": "Last Status",
+      "options": "Unknown\\nOnline\\nOffline",
+      "default": "Unknown",
+      "read_only": 1
+    },
+    {
+      "fieldname": "scanner_connected",
+      "fieldtype": "Check",
+      "label": "Scanner Connected",
+      "read_only": 1
+    },
+    {
+      "fieldname": "scanner_detected_name",
+      "fieldtype": "Data",
+      "label": "Scanner Detected Name",
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "grid_page_length": 50,
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2026-04-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "ZK Bio Identity",
+  "name": "Biometric Device",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "role": "Biometric Manager"
+    },
+    {
+      "read": 1,
+      "role": "Biometric Operator"
+    }
+  ],
+  "search_fields": "device_id,device_name,scanner_model",
+  "show_name_in_global_search": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

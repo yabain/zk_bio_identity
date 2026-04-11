@@ -1,0 +1,147 @@
+{
+  "actions": [],
+  "allow_copy": 0,
+  "autoname": "hash",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "session_type",
+    "requested_by",
+    "requested_for_user",
+    "device",
+    "status",
+    "started_on",
+    "finished_on",
+    "result_user",
+    "result_employee",
+    "biometric_id",
+    "result_confidence",
+    "checkin_name",
+    "message",
+    "raw_payload"
+  ],
+  "fields": [
+    {
+      "fieldname": "session_type",
+      "fieldtype": "Select",
+      "label": "Session Type",
+      "options": "Identify\\nEnroll\\nTest",
+      "reqd": 1
+    },
+    {
+      "fieldname": "requested_by",
+      "fieldtype": "Link",
+      "label": "Requested By",
+      "options": "User"
+    },
+    {
+      "fieldname": "requested_for_user",
+      "fieldtype": "Link",
+      "label": "Requested For User",
+      "options": "User"
+    },
+    {
+      "fieldname": "device",
+      "fieldtype": "Link",
+      "label": "Device",
+      "options": "Biometric Device"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Pending\\nIn Progress\\nCompleted\\nFailed\\nCancelled",
+      "default": "Pending",
+      "reqd": 1
+    },
+    {
+      "fieldname": "started_on",
+      "fieldtype": "Datetime",
+      "label": "Started On"
+    },
+    {
+      "fieldname": "finished_on",
+      "fieldtype": "Datetime",
+      "label": "Finished On"
+    },
+    {
+      "fieldname": "result_user",
+      "fieldtype": "Link",
+      "label": "Result User",
+      "options": "User"
+    },
+    {
+      "fieldname": "result_employee",
+      "fieldtype": "Link",
+      "label": "Result Employee",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "biometric_id",
+      "fieldtype": "Data",
+      "label": "Biometric ID"
+    },
+    {
+      "fieldname": "result_confidence",
+      "fieldtype": "Float",
+      "label": "Result Confidence"
+    },
+    {
+      "fieldname": "checkin_name",
+      "fieldtype": "Data",
+      "label": "Employee Checkin Name",
+      "read_only": 1
+    },
+    {
+      "fieldname": "message",
+      "fieldtype": "Small Text",
+      "label": "Message"
+    },
+    {
+      "fieldname": "raw_payload",
+      "fieldtype": "Long Text",
+      "label": "Raw Payload"
+    }
+  ],
+  "grid_page_length": 50,
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2026-04-12 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "ZK Bio Identity",
+  "name": "Biometric Scan Session",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "role": "Biometric Manager"
+    },
+    {
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "role": "Biometric Operator"
+    }
+  ],
+  "search_fields": "session_type,requested_by,requested_for_user,status,device",
+  "show_name_in_global_search": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}
