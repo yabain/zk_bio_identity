@@ -204,11 +204,6 @@ pip install -r requirements.txt
 ```
 
 
-## License note
-This project is delivered as an original app inspired by the public structure and feature ideas of the referenced M-Pesa app.
-You should still perform your own legal review before distributing commercially.
-
-
 ## Stay in touch
 
 - Author -  [GIC Promote Ltd ](https://gic.cm/) & [Yaba-In](https://yaba-in.com/)
