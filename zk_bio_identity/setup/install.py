@@ -81,35 +81,10 @@ def ensure_user_custom_fields():
         doc.flags.ignore_permissions = True
         doc.insert(ignore_permissions=True)
 
-
-def _ensure_workspace_shortcut(label, link_to, type_, color="Blue", doc_view="List"):
-    shortcut_name = label
-    if frappe.db.exists("Workspace Shortcut", shortcut_name):
-        shortcut = frappe.get_doc("Workspace Shortcut", shortcut_name)
-    else:
-        shortcut = frappe.new_doc("Workspace Shortcut")
-        shortcut.name = shortcut_name
-        shortcut.label = label
-
-    shortcut.type = type_
-    shortcut.link_to = link_to
-    shortcut.color = color
-    shortcut.doc_view = doc_view
-    shortcut.flags.ignore_permissions = True
-    if shortcut.is_new():
-        shortcut.insert(ignore_permissions=True)
-    else:
-        shortcut.save(ignore_permissions=True)
-    return shortcut_name
-
+import frappe
 
 def ensure_workspace():
-    # Shortcuts used in workspace content
-    _ensure_workspace_shortcut("Connect Device", "biometric_connect_device", "Page")
-    _ensure_workspace_shortcut("Identify User", "biometric_identify_user", "Page")
-    _ensure_workspace_shortcut("Add Fingerprint", "biometric_enroll_user", "Page")
-    _ensure_workspace_shortcut("Attendance Dashboard", "biometric_attendance_dashboard", "Page")
-    _ensure_workspace_shortcut("Settings", "ZK Bio Settings", "DocType", doc_view="Form")
+    name = "ZK Bio Identity"
 
     content = [
         {"type": "header", "data": {"text": "Biometric Operations", "level": 4, "col": 12}},
@@ -122,17 +97,54 @@ def ensure_workspace():
         {"type": "shortcut", "data": {"shortcut_name": "Settings", "col": 3}},
     ]
 
-    name = "ZK Bio Identity"
+    shortcuts = [
+        {
+            "label": "Connect Device",
+            "link_to": "biometric_connect_device",
+            "type": "Page",
+            "color": "Blue",
+            "doc_view": "List",
+        },
+        {
+            "label": "Identify User",
+            "link_to": "biometric_identify_user",
+            "type": "Page",
+            "color": "Blue",
+            "doc_view": "List",
+        },
+        {
+            "label": "Add Fingerprint",
+            "link_to": "biometric_enroll_user",
+            "type": "Page",
+            "color": "Blue",
+            "doc_view": "List",
+        },
+        {
+            "label": "Attendance Dashboard",
+            "link_to": "biometric_attendance_dashboard",
+            "type": "Page",
+            "color": "Blue",
+            "doc_view": "List",
+        },
+        {
+            "label": "Settings",
+            "link_to": "ZK Bio Settings",
+            "type": "DocType",
+            "color": "Blue",
+            "doc_view": "Form",
+        },
+    ]
+
     if frappe.db.exists("Workspace", name):
         workspace = frappe.get_doc("Workspace", name)
     else:
         workspace = frappe.new_doc("Workspace")
         workspace.name = name
-        workspace.title = name
-        workspace.label = name
-        workspace.module = "ZK Bio Identity"
-        workspace.public = 1
 
+    workspace.title = name
+    workspace.label = name
+    workspace.module = "ZK Bio Identity"
+    workspace.public = 1
     workspace.icon = "fingerprint"
     workspace.sequence_id = 90
     workspace.content = frappe.as_json(content)
@@ -140,12 +152,18 @@ def ensure_workspace():
     workspace.for_user = ""
     workspace.parent_page = ""
     workspace.restrict_to_domain = ""
+
+    workspace.set("shortcuts", [])
+    for row in shortcuts:
+        workspace.append("shortcuts", row)
+
     workspace.flags.ignore_permissions = True
+
     if workspace.is_new():
         workspace.insert(ignore_permissions=True)
     else:
         workspace.save(ignore_permissions=True)
-
+        
 
 def ensure_settings():
     if not frappe.db.exists("ZK Bio Settings", "ZK Bio Settings"):
