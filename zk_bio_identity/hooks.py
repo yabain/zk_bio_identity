@@ -1,11 +1,13 @@
 app_name = "zk_bio_identity"
 app_title = "ZK Bio Identity"
-app_publisher = "OpenAI"
+app_publisher = "Yaba-In"
 app_description = "Biometric identification, enrollment, and attendance bridge for Frappe/ERPNext."
-app_email = "support@example.com"
+app_email = "support@yaba-in.com"
 app_license = "MIT"
 app_color = "blue"
 app_icon = "fingerprint"
+
+required_apps = ["erpnext"]
 
 after_install = "zk_bio_identity.setup.install.after_install"
 after_migrate = "zk_bio_identity.setup.install.after_migrate"
