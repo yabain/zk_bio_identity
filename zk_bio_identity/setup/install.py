@@ -103,35 +103,35 @@ def ensure_workspace():
             "link_to": "biometric_connect_device",
             "type": "Page",
             "color": "Blue",
-            "doc_view": "List",
+            "doc_view": "",
         },
         {
             "label": "Identify User",
             "link_to": "biometric_identify_user",
             "type": "Page",
             "color": "Blue",
-            "doc_view": "List",
+            "doc_view": "",
         },
         {
             "label": "Add Fingerprint",
             "link_to": "biometric_enroll_user",
             "type": "Page",
             "color": "Blue",
-            "doc_view": "List",
+            "doc_view": "",
         },
         {
             "label": "Attendance Dashboard",
             "link_to": "biometric_attendance_dashboard",
             "type": "Page",
             "color": "Blue",
-            "doc_view": "List",
+            "doc_view": "",
         },
         {
             "label": "Settings",
             "link_to": "ZK Bio Settings",
             "type": "DocType",
             "color": "Blue",
-            "doc_view": "Form",
+            "doc_view": "",
         },
     ]
 
@@ -163,7 +163,7 @@ def ensure_workspace():
         workspace.insert(ignore_permissions=True)
     else:
         workspace.save(ignore_permissions=True)
-        
+
 
 def ensure_settings():
     if not frappe.db.exists("ZK Bio Settings", "ZK Bio Settings"):
